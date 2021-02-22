@@ -14,6 +14,8 @@ export class UsersController {
         @Res() res: Response
     ): Promise<Response> {
         const { fname, lname, email } = user;
+
+        // redundant validation, just in case class-validator is removed
         if (!fname || !lname || !email) {
             res.status(400).json({error: 'All fields are required'});
         }
